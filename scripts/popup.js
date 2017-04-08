@@ -1,3 +1,9 @@
+/*
+	Author: AresC
+	Project: Boardfications
+	Repository: https://github.com/Ares-C/Boardfications
+*/
+
 var linkTag = document.createElement ("link"); linkTag.href = "/stylesheets/boards.css"; linkTag.rel = "stylesheet";
 document.getElementsByTagName("head")[0].appendChild(linkTag);
 

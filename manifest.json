@@ -1,6 +1,6 @@
 ﻿{
   "name": "Boardfications",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "default_locale": "en",
   "description": "Manage your League Boards' notifications!",
   "browser_action": {

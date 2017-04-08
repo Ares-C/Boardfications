@@ -46,7 +46,9 @@ a:active {
 }
  
 #my-updates .update-item .empty-state {
-    text-align: center
+    text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px
 }
  
 #my-updates .update-item .parent-comment {

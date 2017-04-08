@@ -1,3 +1,9 @@
+/*
+	Author: AresC
+	Project: Boardfications
+	Repository: https://github.com/Ares-C/Boardfications
+*/
+
 notifications = [];
 exists = [];
 
@@ -65,10 +71,10 @@ document.addEventListener("DOMContentLoaded", function() {
 						
 						exists[`${discussion}:${comment}`] = true;
 						if (!notifications[discussion+":"+comment]) {
-							notifications[`${discussion}:${comment}`] = [board, discussion, comment, parentDiscussion, parentDiscussion_url, profile_url, profile_sn, server, timeago, url, message, isRioter];
+							notifications[`${discussion}:${comment}`] = [board, discussion, comment, parentDiscussion, parentDiscussion_url, profile_url, profile_sn, server, timeago, url, message, isRioter, i];
 							
 							if (notification === true && options["enableNotifications"]) {
-								submitNotification(message, url, profile_sn)
+								submitNotification(message, url, profile_sn, isRioter)
 							}
 						}
 					}
@@ -80,15 +86,20 @@ document.addEventListener("DOMContentLoaded", function() {
 							exists[key] = undefined;
 						}
 					}
+					
+					notifications.sort(compare);
 					notification = true;
 					exists = [];
 				} else {
-				updateBadge("LOGIN", true);
+					updateBadge("LOGIN", true);
 				}
 			}
 		  }
 		}
-		xhr.ontimeout = function () { 
+		xhr.ontimeout = function () {
+			if (xhr.status == 302 || xhr.status == 0) {
+				return;
+			}
 			updateBadge("ERR", true)
 		}
 		if (!navigator.onLine) { xhr.ontimeout(); } else { xhr.send(); }
@@ -124,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		return typeof object === "object";
 	};
 
-	var submitNotification = function (message, url, _from) {
+	var submitNotification = function (message, url, _from, isRioter) {
 		message = (message.length > 128 && message.substring(0, 128-3) + "..." || message)
 		title = chrome.i18n.getMessage("main_newnotif") + " " + _from
 		var options = {
@@ -133,7 +144,8 @@ document.addEventListener("DOMContentLoaded", function() {
 			contextMessage: "Read more...",
 			type: "basic",
 			iconUrl: "images/icon48.png",
-			isClickable: true
+			isClickable: true,
+			requireInteraction: (isRioter || false)
 		};
 		chrome.notifications.create("Boardfications_"+url, options);
 	};
@@ -202,6 +214,17 @@ document.addEventListener("DOMContentLoaded", function() {
 	reloadExtension = function () {
 		chrome.runtime.reload();
 	}
+	
+	compare = function (a, b) {
+		if (a[12] > b[12]) {
+			return 1;
+		}
+		if (a[12] < b[12]) {
+			return -1;
+		}
+		return 0;
+	}
+		
 	updateBadge("...", true);
 	getOptions();
 	updateNotifications();

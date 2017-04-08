@@ -1,3 +1,8 @@
+/*
+	Author: AresC
+	Project: Boardfications
+	Repository: https://github.com/Ares-C/Boardfications
+*/
 
 function onDocumentLoad() {
 	var linkTag = document.createElement ("link"); linkTag.href = "/stylesheets/options/options.css"; linkTag.rel = "stylesheet";
@@ -36,8 +41,6 @@ function save_options() {
 	  	}
 	}
 	
-	checkPermissions(region);
-	
 	chrome.storage.sync.set({
 		updateDelay: updateDelay,
 		enableNotifications: enableNotifications,
@@ -54,30 +57,6 @@ function save_options() {
 }
 
 document.getElementById('save').addEventListener('click', save_options);
-
-function checkPermissions(region) {
-	chrome.permissions.contains({
-	  origins: [`https://boards.${region}.leagueoflegends.com/`]
-	}, function (permission) {
-		if (!permission) {
-			askForPermissions(region);
-		}
-	});
-}
-
-function askForPermissions(region) {
-	chrome.permissions.request({
-		origins: [`https://boards.${region}.leagueoflegends.com/`]
-		}, function(granted) {
-			if (!granted) {
-				var message = chrome.i18n.getMessage("options_permissions")
-				if (confirm(message)) {
-					checkPermissions(region);
-				}
-			}
-		}
-	);
-}
 
 function apply_i18n_to_popup (){
 	var objects = document.getElementsByTagName("*");
