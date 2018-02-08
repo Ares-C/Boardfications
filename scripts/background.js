@@ -11,6 +11,11 @@ options = [];
 	
 notification = false;
 
+champion_name_by_id = {}
+summoner_spell_by_id = {}
+
+gameversions = {}
+
 language = chrome.i18n.getMessage("@@ui_locale").substr(0, 2);
 document.addEventListener("DOMContentLoaded", function() {
 	var updateNotifications = function () {
@@ -224,7 +229,64 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 		return 0;
 	}
-		
+	
+	get_champions_id = function () {
+		var version = gameversions['champion'] || '7.24.1'
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", `http://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.json`, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					resp = JSON.parse(xhr.responseText);
+					for (var champions in resp['data']) {
+						champion_name = resp['data'][champions]['id']
+						champion_id = resp['data'][champions]['key']
+						champion_name_by_id[parseInt(champion_id)] = champion_name
+					}
+				}
+			}
+		}
+		xhr.send();
+	}
+
+	get_summoner_spells = function () {
+		var version = gameversions['summoner'] || '7.24.1'
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", `http://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/summoner.json`, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					resp = JSON.parse(xhr.responseText);
+					for (var spells in resp['data']) {
+						spell_name = resp['data'][spells]['id']
+						spell_id = resp['data'][spells]['key']
+						summoner_spell_by_id[parseInt(spell_id)] = spell_name
+					}
+				}
+			}
+		}
+		xhr.send();
+	}
+
+	get_gameversion = function () {
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", `https://ddragon.leagueoflegends.com/realms/na.json`, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					resp = JSON.parse(xhr.responseText);
+					for (var n in resp['n']) {
+						gameversions[n] = resp['n'][n]
+					}
+					get_champions_id();
+					get_summoner_spells();
+				}
+			}
+		}
+		xhr.send();
+	}
+	get_gameversion();
+
 	updateBadge("...", true);
 	getOptions();
 	updateNotifications();

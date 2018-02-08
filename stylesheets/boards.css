@@ -166,3 +166,37 @@ button:hover {
 img {
     border: 0
 }
+
+.sticker {
+    display: inline-block;
+    width: 140px;
+    height: 140px;
+    background-repeat: no-repeat;
+}
+
+.item {
+    display: inline-block; 
+    height:36px; 
+    width:36px; 
+}
+
+blockquote {
+    border: 1px solid #493929;
+    border-left: 4px solid #493929;
+    padding: 7px 14px;
+    margin: 14px 0px;
+}
+
+.markdown-meta .markdown-meta-quoted {
+    color: #135866;
+    font-size: 13px;
+    display: block;
+}
+
+.markdown-meta .markdown-meta-quoted a {
+    text-decoration: underline;
+}
+
+.timeago {
+    font-size: 11px;
+}

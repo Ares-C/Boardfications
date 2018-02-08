@@ -1,50 +1,50 @@
-﻿{
-	"main_empty": {
-		"message": "Nothing new here, you've already read all of your updates."
-	},
-	"main_settings": {
-		"message": "Settings"
-	},
-	"main_clear": {
-		"message": "Clear"
-	},
-	"main_about": {
-		"message": "About"
-	},
-	"main_developer": {
-		"message": "Developed by"
-	},
-	"main_in": {
-		"message": "in"
-	},
-	"main_gtc": {
-		"message": "Go to comment"
-	},
-	"main_punishments": {
-		"message": "Punishments"
-	},
-	"main_newnotif": {
-		"message": "You have a new notification from"
-	},
-	"options_region": {
-		"message": "Region"
-	},
-	"options_ue": {
-		"message": "Update each"
-	},
-	"options_seconds": {
-		"message": "seconds"
-	},
-	"options_en": {
-		"message": "Enable notifications"
-	},
-	"options_save": {
-		"message": "Save"
-	},
-	"options_saved": {
-		"message": "Options saved."
-	},
-	"options_permissions": {
-		"message": "Boardfications needs you to grant it the required permissions in order to work. Would you like to grant Boardfications these permissions?"
-	}
+{
+   "main_about": {
+      "message": "About"
+   },
+   "main_clear": {
+      "message": "Clear"
+   },
+   "main_developer": {
+      "message": "Developed by"
+   },
+   "main_empty": {
+      "message": "Nothing new here, you've already read all of your updates."
+   },
+   "main_gtc": {
+      "message": "Go to comment"
+   },
+   "main_in": {
+      "message": "in"
+   },
+   "main_newnotif": {
+      "message": "You have a new notification from"
+   },
+   "main_punishments": {
+      "message": "Punishments"
+   },
+   "main_settings": {
+      "message": "Settings"
+   },
+   "options_en": {
+      "message": "Enable notifications"
+   },
+   "options_permissions": {
+      "message": "Boardfications needs you to grant it the required permissions in order to work. Would you like to grant Boardfications these permissions?"
+   },
+   "options_region": {
+      "message": "Region"
+   },
+   "options_save": {
+      "message": "Save"
+   },
+   "options_saved": {
+      "message": "Options saved."
+   },
+   "options_seconds": {
+      "message": "seconds"
+   },
+   "options_ue": {
+      "message": "Update each"
+   }
 }

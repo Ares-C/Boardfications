@@ -1,50 +1,50 @@
-﻿{
-	"main_empty": {
-		"message": "No hay nada nuevo por aquí; ya has leído todas tus notificaciones."
-	},
-	"main_settings": {
-		"message": "Configuraciones"
-	},
-	"main_clear": {
-		"message": "Limpiar"
-	},
-	"main_about": {
-		"message": "Información"
-	},
-	"main_developer": {
-		"message": "Desarrollado por"
-	},
-	"main_in": {
-		"message": "en"
-	},
-	"main_gtc": {
-		"message": "Ir a comentario"
-	},
-	"main_punishments": {
-		"message": "Castigos"
-	},
-	"main_newnotif": {
-		"message": "Tienes una nueva notificación de"
-	},
-	"options_region": {
-		"message": "Región"
-	},
-	"options_ue": {
-		"message": "Actualizar cada"
-	},
-	"options_seconds": {
-		"message": "segundos"
-	},
-	"options_en": {
-		"message": "Activar notificaciones"
-	},
-	"options_save": {
-		"message": "Guardar"
-	},
-	"options_saved": {
-		"message": "Opciones guardadas."
-	},
-	"options_permissions": {
-		"message": "Boardfications necesita que usted le otorgue los permisos necesarios para funcionar. ¿Le gustaría darle los permisos necesarios a Boardfications para funcionar?"
-	}
+{
+   "main_about": {
+      "message": "Información"
+   },
+   "main_clear": {
+      "message": "Limpiar"
+   },
+   "main_developer": {
+      "message": "Desarrollado por"
+   },
+   "main_empty": {
+      "message": "No hay nada nuevo por aquí; ya has leído todas tus notificaciones."
+   },
+   "main_gtc": {
+      "message": "Ir a comentario"
+   },
+   "main_in": {
+      "message": "en"
+   },
+   "main_newnotif": {
+      "message": "Tienes una nueva notificación de"
+   },
+   "main_punishments": {
+      "message": "Castigos"
+   },
+   "main_settings": {
+      "message": "Configuraciones"
+   },
+   "options_en": {
+      "message": "Activar notificaciones"
+   },
+   "options_permissions": {
+      "message": "Boardfications necesita que usted le otorgue los permisos necesarios para funcionar. ¿Le gustaría darle los permisos necesarios a Boardfications para funcionar?"
+   },
+   "options_region": {
+      "message": "Región"
+   },
+   "options_save": {
+      "message": "Guardar"
+   },
+   "options_saved": {
+      "message": "Opciones guardadas."
+   },
+   "options_seconds": {
+      "message": "segundos"
+   },
+   "options_ue": {
+      "message": "Actualizar cada"
+   }
 }
